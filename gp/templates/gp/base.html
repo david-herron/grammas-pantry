@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>Gramma's Pantry</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static "css/gp.css" %}">
+    </head>
+    
+    <body>
+        
+        <header>
+                <div class="row header-content">
+                    <div class="col-sm-6">
+                        <img class="logo" src="{% static "img/logo.png" %}" />
+<!--                        <p class="address">223 Minnesota Avenue N Aitkin, Minnesota<br>
+                                                (218) 555-5555</p>-->
+                    </div>
+                    <div class="col-sm-6">
+                        <div>
+                            <p class="tagline">"Quality basics for healthy living"</p>
+                        </div>
+                    </div>
+                </div>
+            
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{% url 'features' %}">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Recipes</a></li>
+                        <li><a href="#">Hours and Directions</a></li> 
+                        <li><a href="#">Contact</a></li> 
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        
+        <div class="main_content">
+            {% block content %}{% endblock %}
+        </div>
+        
+    </body>
+    
+</html>
