@@ -1,5 +1,45 @@
 <html>
+    
     <body>
-        <h1>Welcome</h1>
+        
+{% block content %}
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="main-article">
+                <h2 class="main-feature-title">{{ latest_feature }}</h2>
+                <p>{{ latest_feature.content }}</p>
+            </div>
+            <hr class="main-hr">
+            <div class="second-article">
+                <h3 class="second-feature-title">{{ second_feature }}</h3>
+                <p>{{ second_feature.content }}</p>
+            </div>
+            <hr class="second-hr">
+        </div>
+        <div class="col-sm-5">
+
+                <div>
+                    <ul class="recent-posts">
+                        <li class="third-article articles"><a href="#">{{ third_feature }}</a></li>
+                        <br>
+                        <li class="fourth-article articles"><a href="#">{{ fourth_feature }}</a></li>
+                        <br>
+                        <li class="fifth-article articles"><a href="#">{{ fifth_feature }}</a></li>
+                    </ul>
+                </div>
+                <hr>
+                <p>More specials!</p>
+                <ul>
+                    {% for feature in past_features %}
+                    <li><a href="#">{{ feature }}</a></li>
+                    {% endfor %}
+                </ul>
+                <a href="#">more..</a>
+
+        </div>
+    </div>
+{% endblock %}
+
     </body>
+    
 </html>
