@@ -49,3 +49,6 @@ def recipe_detail(request, recipe_id):
     selected_recipe = get_object_or_404(Recipe, pk=recipe_id)
     all_recipes = Recipe.objects.all().order_by('-pub_date')
     return render(request, 'gp/recipe_detail.html', {'selected_recipe': selected_recipe, 'all_recipes': all_recipes})
+
+def directions(request):
+    return render(request, 'gp/directions.html')
