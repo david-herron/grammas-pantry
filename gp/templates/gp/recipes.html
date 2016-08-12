@@ -1,0 +1,18 @@
+{% extends "gp/base.html" %}
+
+{% block content %}
+<h1>This Week's Featured Recipe</h1>
+
+<h2>{{ most_recent_recipe }}</h2>
+<p>{{ most_recent_recipe.ingredients|linebreaks }}</p>
+<p>{{ most_recent_recipe.instructions|linebreaks }}</p>
+<p>{{ most_recent_recipe.author|linebreaks }}</p>
+
+<ul>
+    {% for recipe in all_recipes %}
+        {% if most_recent_recipe.id != recipe.id %}
+            <li><a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}, {{ recipe.pub_date }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

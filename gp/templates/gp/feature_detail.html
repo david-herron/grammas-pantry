@@ -1,0 +1,48 @@
+{% extends "gp/base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="main-article">
+                <h2 class="main-feature-title">{{ selected_feature }}</h2>
+                <p>{{ selected_feature.pub_date }}</p>
+                <p>{{ selected_feature.content }}</p>
+            </div>
+            <hr class="main-hr">
+            <div class="second-article">
+                <h3 class="second-feature-title">{{ latest_feature }}</h3>
+                <p>{{ latest_feature.pub_date }}</p>
+                <p>{{ latest_feature.content }}</p>
+            </div>
+            <hr class="second-hr">
+        </div>
+        <div class="col-sm-5">
+
+                <div>
+                    <ul class="recent-posts">
+                        {% for feature in third_feature %}
+                            <li class="third-article articles"><a href="{% url 'feature_detail' pk=feature.pk %}">{{ feature }}</a></li>
+                        {% endfor %}
+                        <br>
+                        {% for feature in fourth_feature %}
+                            <li class="fourth-article articles"><a href="{% url 'feature_detail' pk=feature.pk %}">{{ feature }}</a></li>
+                        {% endfor %}
+                        <br>
+                        {% for feature in fifth_feature %}
+                            <li class="fifth-article articles"><a href="{% url 'feature_detail' pk=feature.pk %}">{{ feature }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <hr>
+                <p>More specials!</p>
+                <ul>
+                    {% for feature in past_features %}
+                    <li><a href="{% url 'feature_detail' pk=feature.pk %}">{{ feature }}</a></li>
+                    {% endfor %}
+                </ul>
+                <a href="#">more..</a>
+        </div>
+    </div>
+{% endblock %}
+
+

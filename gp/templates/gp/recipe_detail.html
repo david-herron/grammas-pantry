@@ -1,0 +1,19 @@
+{% extends "gp/base.html" %}
+
+{% block content %}
+
+<h1>{{ selected_recipe }}</h1>
+<p>{{ selected_recipe.ingredients|linebreaks }}</p>
+<p>{{ selected_recipe.instructions|linebreaks }}</p>
+<p>{{ selected_recipe.author }}</p>
+<p>{{ selected_recipe.pub_date }}</p>
+
+<ul>
+    {% for recipes in all_recipes %}
+        {% if recipes.id != selected_recipe.id %}
+            <li><a href="{% url 'recipe_detail' recipes.id %}">{{ recipes.title }}, {{ recipes.pub_date }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+{% endblock %}

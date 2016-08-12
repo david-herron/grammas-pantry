@@ -13,8 +13,10 @@ class Recipe(models.Model):
         return self.title
     
 class Feature(models.Model):
-    title = models.CharField(max_length=100, default='')
+    title = models.CharField(db_index=True, max_length=100, default='')
     content = models.TextField(default='')
-    pub_date = models.DateTimeField(default=datetime.now, blank=True)
+    pub_date = models.DateTimeField(db_index=True, default=datetime.now, blank=True)
     def __str__(self):
         return self.title
+    def __iter__(self):
+        return iter(self.id)
